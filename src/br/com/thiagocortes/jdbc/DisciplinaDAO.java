@@ -14,7 +14,7 @@ public class DisciplinaDAO {
 	private static Connection con = Conexao.getConection();
 		
 	public void cadastrar(Disciplina disciplina){
-		String sql = "INSERT INTO disciplinas(nome,descricao,carga_horaria) VALUES (?,?,?)";
+		String sql = "INSERT INTO disciplina(nome,descricao,carga_hora) VALUES (?,?,?)";
 		try{
 			PreparedStatement stm = con.prepareStatement(sql);
 			stm.setString(1, disciplina.getNome());
@@ -34,7 +34,7 @@ public class DisciplinaDAO {
 	}
 	
 	public void alterar(Disciplina disciplina){
-		String sql = "UPDATE disciplinas SET nome=?, descricao=?, carga_horaria=? WHERE id = ?";
+		String sql = "UPDATE disciplina SET nome=?, descricao=?, carga_hora=? WHERE id_disciplina = ?";
 		
 		try{
 			PreparedStatement stm = con.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class DisciplinaDAO {
 	}
 	
 	public void delete(Disciplina disciplina){
-		String sql = "DELETE FROM disciplinas WHERE id = ?";
+		String sql = "DELETE FROM disciplina WHERE id_disciplina = ?";
 		
 		try{
 			PreparedStatement stm = con.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class DisciplinaDAO {
 	public List<Disciplina> consultar(){
 		
 		Disciplina disciplina = new Disciplina();
-		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+		List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 		String sql = "SELECT * FROM disciplinas";
 		
 		try{
@@ -87,7 +87,7 @@ public class DisciplinaDAO {
 			ResultSet resultado = stm.executeQuery();
 			
 			while(resultado.next()){
-				disciplina.setIdDisciplina(resultado.getInt("id"));
+				disciplina.setIdDisciplina(resultado.getInt("id_disciplina"));
 				disciplina.setNome(resultado.getString("nome"));
 				disciplina.setDescricao(resultado.getString("descricao"));
 				disciplina.setCargaHoraria(resultado.getInt("carga_horaria"));

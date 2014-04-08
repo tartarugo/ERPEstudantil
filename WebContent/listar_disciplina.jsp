@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@page import="br.com.thiagocortes.entidades.*" %>
 <%@page import="java.util.ArrayList" %>
+<%@page import="java.util.List" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,7 +20,7 @@
 	
 	<% 
 	//scriptlet
-		ArrayList<Disciplina> lista = (ArrayList<Disciplina>) request.getAttribute("lista");
+		List<Disciplina> lista = (List<Disciplina>) request.getAttribute("lista");
 	for (Disciplina disciplina : lista){ %>
 	<tr>
 		<td><%=(disciplina.getIdDisciplina()) %></td>

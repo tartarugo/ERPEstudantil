@@ -1,7 +1,6 @@
 package br.com.thiagocortes.controler;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,6 +24,10 @@ public class DisciplinaExibir extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DisciplinaDAO dao = new DisciplinaDAO();
 		List<Disciplina> disciplinas = dao.consultar();
+		
+		request.setAttribute("lista", disciplinas);
+		request.getRequestDispatcher("listar_disciplina.jsp").forward(request, response);
+		/*
 		String htmlSaida = "<html> <head><title>Lista de Disciplinas</title></head><body>" +
 		"<table border='1px'><tr><th>ID</th><th>Nome</th><th>Descrição</th><th>Carga Horária</th></tr>";
 		for(Disciplina disci : disciplinas){
@@ -33,7 +36,7 @@ public class DisciplinaExibir extends HttpServlet {
 		}
 		htmlSaida +="</table></body></html>";
 		PrintWriter saida = response.getWriter();
-		saida.println(htmlSaida);
+		saida.println(htmlSaida);*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

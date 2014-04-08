@@ -15,7 +15,6 @@ import br.com.thiagocortes.entidades.Disciplina;
 import br.com.thiagocortes.jdbc.DisciplinaDAO;
 
 
-@WebServlet("/ControlerDisciplina.do")
 public class ControlerDisciplina extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,6 +27,19 @@ public class ControlerDisciplina extends HttpServlet {
 		System.out.println("Metodo GET");
 		
 		//Obter a lista
+		
+		String link = request.getParameter("menu");
+		
+		if (link.equals("aluno")){
+			request.getRequestDispatcher("formulario.html").forward(request,response);
+		}
+		if (link.equals("buscar")){
+			DisciplinaDAO dao = new DisciplinaDAO();
+			ArrayList<Disciplina> lista = (ArrayList<Disciplina>) dao.consultar();
+			request.setAttribute("lista", lista);
+			request.getRequestDispatcher("listar_disciplina.jsp").forward(request, response);
+		}
+		/*
 		DisciplinaDAO dao = new DisciplinaDAO();
 		ArrayList<Disciplina> lista = (ArrayList<Disciplina>) dao.consultar();
 		
@@ -35,8 +47,8 @@ public class ControlerDisciplina extends HttpServlet {
 		request.setAttribute("lista", lista);
 		
 		//encaminhar para jsp		
-		request.getRequestDispatcher("listar_disciplina.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

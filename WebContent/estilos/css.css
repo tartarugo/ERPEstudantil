@@ -1,46 +1,85 @@
+body{
+	width: 100%;
+	margin:0px auto;
+}
 .total{
-	width:900px;
+	width:100%;
 	margin: 0 auto;
-	border:1px solid #666;
+}
+.topo_total{
+	width:100%;
+	float:left;
+	margin:0px auto;
+	background-color: lightblue;
 }
 .topo{
-	height:200px;
-	width:100%;
-	margin:10px auto;
-	border:1px solid #666;
-}
-.menu_principal{
-	margin:50px auto;
-	width:800px;
-}
-.menu_principal ul{
-	list-style:none;
-}
-.menu_principal ul li{
-	display: inline-block;
-	width:200px;
 	height:100px;
-	margin-left:10px;
-	margin-bottom:10px;
+	float:left;	
+}
+
+.menu_principal{
+	width:100%;
+	float:left;
+	background-color: #FFFFFF;
+}
+.menu{
+	width:900px;
+	background-color:#FFFFFF;
+	margin: 0px auto;
+	color:#6EEEEE;
+	font-family: verdana;
+}
+.menu ul{
+	list-style:none;
+	float:left
+}
+.menu ul li{
+	display: inline;
+	position:relative;
+	float:left;
+	padding:5px;
+	width:150px;
+	margin:5px;
 	border:1px solid #6EEEEE;
 	background-color: #6E8DE0;
-	border-radius:5px;
-	vertical-align:middle;
 	box-shadow:2px 2px 2px #666;
 }
-.menu_principal ul li span{
-	float:left;
-	vertical-align:middle;
-	border-top:1px solid #666;
-	text-align:left;
-	height: 20px;
-	margin-left:5px;
-	width:90%;	
+.menu ul li ul{
+	display: none;
+	position: absolute;
+	left:0px;
+	top:30px;
 }
-.imagem{
-	height: 70px;
+.menu ul li:hover ul{
+	display:block;
+}
+.menu li ul li{
+	display:block;
+	margin:0px;
+}
+.menu li:hover{
+	background-color: #FFFFFF;
+}
+.conteudo_total{
+	height:400px;
+	background-color: red;	
+}
+.rodape{
+	height: 50px;
+	background-color: #666;
+}
+
+/*
+Formulario
+*/
+fieldset{
+	width: 400px;
 	float:left;
-	margin-bottom: 5px;
-	width:100%;
-	background-color: transparent;	
+}
+label{
+	display: block;
+}
+span{
+	width: 100px;
+	float:left;
 }

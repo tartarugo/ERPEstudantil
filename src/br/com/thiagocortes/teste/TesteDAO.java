@@ -2,7 +2,9 @@ package br.com.thiagocortes.teste;
 
 import java.util.List;
 
+import br.com.thiagocortes.entidades.Curso;
 import br.com.thiagocortes.entidades.Disciplina;
+import br.com.thiagocortes.jdbc.CursoDAO;
 import br.com.thiagocortes.jdbc.DisciplinaDAO;
 
 public class TesteDAO {
@@ -12,7 +14,18 @@ public class TesteDAO {
 		//testCadastrar();
 		//testConsultar();
 		//testExcluir();
-		buscarId();
+		//buscarId();
+		testCadastrarCurso();
+	}
+
+	public static void testCadastrarCurso(){
+		Curso curso = new Curso();
+		curso.setNomeCurso("POE");
+		curso.setDescricao("Programacao orientada a Eventos");
+		
+		CursoDAO dao = new CursoDAO();
+		
+		dao.cadastrar(curso);	
 	}
 	
 	public static void testCadastrar(){
@@ -25,6 +38,7 @@ public class TesteDAO {
 		
 		dao.cadastrar(disciplina);	
 	}
+	
 	public static void testConsultar(){
 		DisciplinaDAO dao = new DisciplinaDAO();
 				
